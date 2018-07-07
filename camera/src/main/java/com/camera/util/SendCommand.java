@@ -23,15 +23,16 @@ public class SendCommand {
 
 	//连接远程摄像头
 	private RemoteController controller = new RemoteController("172.16.40.61", "ubuntu", "ubuntu", "ubuntu", "ubuntu");
-	
+
 	@Autowired
-	private StuclassMapper stuclassMapper;
+	private StuclassMapper stuclassMapper ;
 	
 	@Autowired
 	private StudentMapper studentMapper;
 	
 	@Autowired
 	private NattendMapper nattendMapper;
+	
 
 	public void sycrSendCommand(){
 		System.out.println("北京时间：" + new Date() );
@@ -119,4 +120,15 @@ public class SendCommand {
 			e.printStackTrace();
 		}
 	}
+	
+	/**
+	 * 测试quazt定时开启任务
+	 */
+	private static int i = 1;
+	public void testQuartz(){
+		System.out.println("开始启动quartz任务:任务"+ i +"...");
+		System.out.println("=================");
+		i++;
+	}
+	
 }
