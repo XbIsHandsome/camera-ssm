@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.camera.model.ClassDetail;
 import com.camera.model.HistoryProfile;
 import com.camera.service.HistoryService;
 import com.camera.util.TimeUtil;
@@ -34,10 +35,17 @@ public class HistoryController {
 	public ModelAndView showdetail(HistoryProfile profile){
 		logger.info("进入历史课程--->根据传入参数显示所选的学生详细信息...");
 		ModelAndView mav = new ModelAndView();
-		historyService.selectClassDetailBy(profile.getWeelTime(), profile.getWeekday(), 
+		List<ClassDetail> list = historyService.selectClassDetailBy(profile.getWeelTime(), profile.getWeekday(), 
 				profile.getCid(), profile.getCsid(), TimeUtil.turnInteger(profile.getTime()));
-		mav.addObject(attributeName, attributeValue)
-		
+		if(!list.isEmpty() && list != null){
+			mav.addObject("studentList", list);
+			mav.addObject("currentClass", profile);
+			mav.setViewName("classdetail");
+		}else{
+			mav.addObject("ERROR", "信息未能检索到");
+			mav.setViewName("error");
+		}
+		return mav;
 		
 	}
 	
