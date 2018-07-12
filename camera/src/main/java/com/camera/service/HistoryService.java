@@ -19,11 +19,12 @@ public interface HistoryService {
 
 	/**
 	 * 根据第几周，周几来查询当天的所有课程信息
-	 * @param week
-	 * @param weekday
+	 * @param week 第几周
+	 * @param weekday 星期几
+	 * @time 第几节课
 	 * @return
 	 */
-	public List<HistoryProfile> selectByTimeAndDay(Integer week, Integer weekday);
+	public List<HistoryProfile> selectByTimeAndDay(Integer week, Integer weekday, Integer time);
 	
 	/**
 	 * 根据输入的参数，返回选择的历史课程该班级的所有学生到课详情（此处还可以优化）

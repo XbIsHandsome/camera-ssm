@@ -56,8 +56,9 @@
 									<c:out value="${ h.number}"/></td>
 								<td><c:out value="${ h.time}"/></td>
 								<td><c:out value="${ h.place}"/></td>
-								<td><c:out value="${ h.num}"/>/<c:out value="${ h.actualNum}"/></td>
-								<td ><a href="/camera/history/historydetail" >查看详情</a></td>
+								<td><c:out value="${ h.actualNum}"/>/<c:out value="${ h.num}"/></td>
+								<td ><a href="/camera/history/historydetail?weekTime=${h.weekTime }&weekday=${h.weekday}&time=${h.time}
+								&cid=${h.cid}&csid=${h.csid}&grade=${h.grade}&classname=${h.className}&number=${h.number}&place=${h.place}" >查看详情</a></td>
 							</tr>
 						</c:forEach>
 					</tbody>

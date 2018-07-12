@@ -38,7 +38,7 @@
   <select id="selectByWeekAndDayOfWeek" resultMap="HistorytMap" >
     select c.cid,cs.csid,c.grade,c.class_name,c.number,cs.coursename,cc.place,cc.time
     from stuclass c,course cs,class_course cc
-    where cc.week_time like '%${0}%' and cc.weekday=#{1}
+    where cc.week_time like '%${0}%' and cc.weekday=#{1} and time=#{2}
     and cc.cid = c.cid and cs.csid=cc.csid
   </select>
   

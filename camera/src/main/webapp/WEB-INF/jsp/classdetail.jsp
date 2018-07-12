@@ -40,7 +40,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <body>
 
-<div style="margin-top: 70px">
+<div style="margin-top: 70px"/>
 	<div class="wraper container-fluid">
 		<div class="panel">
 			<div class="panel-body">

@@ -9,7 +9,6 @@ import com.camera.dao.NattendMapper;
 import com.camera.dao.StuclassMapper;
 import com.camera.dao.StudentMapper;
 import com.camera.model.ClassDetail;
-import com.camera.model.Stuclass;
 import com.camera.model.SycrohProfile;
 import com.camera.service.SycrohService;
 import com.camera.util.TimeUtil;

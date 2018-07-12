@@ -22,5 +22,5 @@ public interface ClassCourseMapper {
     
     List<ClassCourse> listall();
 
-	List<HistoryProfile> selectByWeekAndDayOfWeek(Integer weektime, Integer weekday);
+	List<HistoryProfile> selectByWeekAndDayOfWeek(Integer weektime, Integer weekday, Integer time);
 }

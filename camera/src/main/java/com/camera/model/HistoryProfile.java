@@ -44,7 +44,7 @@ public class HistoryProfile implements Serializable{
 	private String time;
 	
 	//第几周上课
-	private Integer weelTime;
+	private Integer weekTime;
 	
 	//星期几上课
 	private Integer weekday;
@@ -236,18 +236,18 @@ public class HistoryProfile implements Serializable{
 	 * 获取第几周信息
 	 * @return
 	 */
-	public Integer getWeelTime() {
-		return weelTime;
+	public Integer getWeekTime() {
+		return weekTime;
 	}
-	
+
 	/**
 	 * 根据传入参数设定第几周
 	 * @param weelTime
 	 */
-	public void setWeelTime(Integer weelTime) {
-		this.weelTime = weelTime;
+	public void setWeekTime(Integer weekTime) {
+		this.weekTime = weekTime;
 	}
-
+	
 	/**
 	 * 获取当前星期几
 	 * @return

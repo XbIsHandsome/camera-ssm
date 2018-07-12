@@ -11,7 +11,6 @@ import com.camera.dao.StudentMapper;
 import com.camera.model.ClassDetail;
 import com.camera.model.HistoryProfile;
 import com.camera.service.HistoryService;
-import com.camera.util.TimeUtil;
 
 /**
  * @author 许兵
@@ -41,15 +40,15 @@ public class HistoryServiceImpl implements HistoryService{
 	 * @param weekday
 	 * @return List<HistoryProfile>
 	 */
-	public List<HistoryProfile> selectByTimeAndDay(Integer weektime, Integer weekday) {
-		List<HistoryProfile> list = classCourseMapper.selectByWeekAndDayOfWeek(weektime,weekday);
+	public List<HistoryProfile> selectByTimeAndDay(Integer weektime, Integer weekday, Integer time) {
+		List<HistoryProfile> list = classCourseMapper.selectByWeekAndDayOfWeek(weektime,weekday,time);
 		if(!list.isEmpty() && list != null){
 			int lateCount = 0;
 			for (HistoryProfile historyProfile : list) {
 				List<ClassDetail> list2 = studentMapper.selectStudentByCid(historyProfile.getCid());
 				for (ClassDetail classDetail : list2) {
-					Integer status = nattendMapper.selectIsLate(TimeUtil.countCurrentDayWeek(),
-							TimeUtil.countCurrentCourseTime(),classDetail.getSid(), weekday);
+					Integer status = nattendMapper.selectIsLate(weektime,
+							time,classDetail.getSid(), weekday);
 					if(status != null){
 						classDetail.setState(2);
 						lateCount++;
@@ -60,7 +59,7 @@ public class HistoryServiceImpl implements HistoryService{
 				}
 				historyProfile.setNum(list2.size());
 				historyProfile.setActualNum(historyProfile.getNum() - lateCount);
-				historyProfile.setWeelTime(weektime);
+				historyProfile.setWeekTime(weektime);
 				historyProfile.setWeekday(weekday);
 				historyProfile.setStudents(list2);
 			}

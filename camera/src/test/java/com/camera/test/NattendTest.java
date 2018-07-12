@@ -2,7 +2,6 @@ package com.camera.test;
 
 import java.util.Date;
 
-import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +33,16 @@ public class NattendTest {
 		nattend.setWeek(TimeUtil.countCurrentDayWeek());
 		nattend.setCourseTime(TimeUtil.countCurrentCourseTime());
 		nattendMapper.insert(nattend);
+		
+	}
+	
+	@Test
+	public void test2(){
+		
+		
+		Integer selectIsLate = this.nattendMapper.selectIsLate(15, 2, 1, 2);
+		System.out.println(selectIsLate);
+		
 		
 	}
 

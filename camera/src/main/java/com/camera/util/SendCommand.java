@@ -58,7 +58,8 @@ public class SendCommand {
 				lable[i] = students.get(i).getSid();
 			}
 			controller.runXML(students.size(), in, lable);
-			List<Integer> runRF = controller.runRF(1.0);
+			//List<Integer> runRF = 
+					controller.runRF(1.0);
 			
 			
 		} catch (NullPointerException e) {
