@@ -34,7 +34,7 @@ public class SycrohServiceImpl implements SycrohService{
 				List<ClassDetail> list2 = studentMapper.selectStudentByCid(sycrohProfile.getCid());
 				for (ClassDetail classDetail : list2) {
 					Integer status = nattendMapper.selectIsLate(TimeUtil.countCurrentDayWeek(),
-							TimeUtil.countCurrentCourseTime(),classDetail.getSid());
+							TimeUtil.countCurrentCourseTime(),classDetail.getSid(), TimeUtil.countDayOfWeek());
 					if(status != null){
 						classDetail.setState(2);
 						lateCount++;

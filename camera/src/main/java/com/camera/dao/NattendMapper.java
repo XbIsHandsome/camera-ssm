@@ -1,7 +1,9 @@
 package com.camera.dao;
 
-import com.camera.model.Nattend;
+import org.springframework.stereotype.Repository;
 
+import com.camera.model.Nattend;
+@Repository
 public interface NattendMapper {
     int deleteByPrimaryKey(Integer nid);
 
@@ -15,5 +17,5 @@ public interface NattendMapper {
 
     int updateByPrimaryKey(Nattend record);
 
-	Integer selectIsLate(Integer countCurrentDayWeek, Integer countCurrentCourseTime, Integer sid);
+	Integer selectIsLate(Integer countCurrentDayWeek, Integer countCurrentCourseTime, Integer sid, Integer weekday);
 }

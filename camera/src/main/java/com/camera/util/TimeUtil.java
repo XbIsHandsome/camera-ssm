@@ -3,6 +3,11 @@ package com.camera.util;
 import java.util.Calendar;
 import java.util.Date;
 
+/**
+ * @author 许兵
+ * @description 
+ * @date 2018年7月12日,上午10:36:09
+ */
 public class TimeUtil {
 
 	/**
@@ -95,6 +100,11 @@ public class TimeUtil {
 		} 
 		return null; 
 	}
+	
+	
+	public static  int countDayOfWeek(){
+		return Calendar.DAY_OF_WEEK + 1;
+	}
 
 	/**
 	 * 判断当前是第几节课
@@ -143,7 +153,7 @@ public class TimeUtil {
 
 	/**
 	 * 根据参数返回相应的文字信息
-	 * @param time
+	 * @param time 第几节课
 	 * @return
 	 */
 	public static String turnString(Integer time){
@@ -156,6 +166,22 @@ public class TimeUtil {
 		case 5: returnTime = "第五大节"; break;
 		}
 		return returnTime;
+	}
+	
+	/**
+	 * 根据传入参数返回相应的数字信息
+	 * @param time 第几节课
+	 * @return
+	 */
+	public static Integer turnInteger(String time){
+		if(time != null && "".equals(time)){
+			if("第一节课".equals(time)) return 1;
+			else if("第二节课".equals(time)) return 2;
+			else if("第三节课".equals(time)) return 3;
+			else if("第四节课".equals(time)) return 4;
+			else if("第五节课".equals(time)) return 5;
+		}
+		return 0;
 	}
 
 }

@@ -1,7 +1,9 @@
 package com.camera.dao;
 
-import com.camera.model.Model;
+import org.springframework.stereotype.Repository;
 
+import com.camera.model.Model;
+@Repository
 public interface ModelMapper {
     int deleteByPrimaryKey(Integer mid);
 

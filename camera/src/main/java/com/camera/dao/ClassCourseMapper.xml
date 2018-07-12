@@ -12,6 +12,18 @@
     <result column="csid" property="csid" jdbcType="INTEGER" />
     <result column="weekday" property="weekday" jdbcType="INTEGER" />
   </resultMap>
+  
+  <!-- 构建历史课程模块的查询对象对应的resultMap -->
+  <resultMap id="HistorytMap" type="com.camera.model.HistoryProfile" >
+    <result column="cid" property="cid" jdbcType="INTEGER" />
+    <result column="csid" property="csid" jdbcType="INTEGER" />
+    <result column="grade" property="grade" jdbcType="VARCHAR"/>
+    <result column="class_name" property="className" jdbcType="VARCHAR"/>
+    <result column="number" property="number" jdbcType="VARCHAR"/>
+    <result column="coursename" property="coursename" jdbcType="VARCHAR"/>
+    <result column="place" property="place" jdbcType="VARCHAR" />
+    <result column="time" property="time" jdbcType="INTEGER" />
+  </resultMap>
   <sql id="Base_Column_List" >
     ccid, semester, week_time, time, place, teacher, cid, csid,weekday
   </sql>
@@ -21,6 +33,15 @@
     <include refid="Base_Column_List" />
     from class_course
   </select>
+  
+  <!-- 构建查询历史课程信息的查询语句 -->
+  <select id="selectByWeekAndDayOfWeek" resultMap="HistorytMap" >
+    select c.cid,cs.csid,c.grade,c.class_name,c.number,cs.coursename,cc.place,cc.time
+    from stuclass c,course cs,class_course cc
+    where cc.week_time like '%${0}%' and cc.weekday=#{1}
+    and cc.cid = c.cid and cs.csid=cc.csid
+  </select>
+  
   
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 

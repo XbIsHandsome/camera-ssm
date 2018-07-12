@@ -2,9 +2,11 @@ package com.camera.dao;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.camera.model.ClassDetail;
 import com.camera.model.Student;
-
+@Repository
 public interface StudentMapper {
     int deleteByPrimaryKey(Integer sid);
 

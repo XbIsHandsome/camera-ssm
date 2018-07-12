@@ -16,7 +16,7 @@ import com.camera.service.SycrohService;
 public class SycrohController {
 
 	@Autowired
-	private SycrohService sycrohServce;
+	private SycrohService sycrohService;
 	
 	/**
 	 * 实时查询所有班级信息
@@ -25,7 +25,7 @@ public class SycrohController {
 	@RequestMapping("/showall")
 	public ModelAndView currentClass(){
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("classList", sycrohServce.showall());
+		mav.addObject("classList", sycrohService.showall());
 		mav.setViewName("synchroAll");
 		return mav;
 	}
@@ -42,7 +42,7 @@ public class SycrohController {
 		profile.setCid(cid);
 		profile.setPlace(place);
 		profile.setTime(time);
-		List<ClassDetail> list = sycrohServce.showdetail(cid);
+		List<ClassDetail> list = sycrohService.showdetail(cid);
 		if(!list.isEmpty() && list != null){
 			mav.addObject("studentList", list);
 			mav.addObject("currentClass", profile);

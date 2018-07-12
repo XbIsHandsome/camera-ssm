@@ -2,8 +2,11 @@ package com.camera.dao;
 
 import java.util.List;
 
-import com.camera.model.ClassCourse;
+import org.springframework.stereotype.Repository;
 
+import com.camera.model.ClassCourse;
+import com.camera.model.HistoryProfile;
+@Repository
 public interface ClassCourseMapper {
     int deleteByPrimaryKey(Integer ccid);
 
@@ -18,4 +21,6 @@ public interface ClassCourseMapper {
     int updateByPrimaryKey(ClassCourse record);
     
     List<ClassCourse> listall();
+
+	List<HistoryProfile> selectByWeekAndDayOfWeek(Integer weektime, Integer weekday);
 }

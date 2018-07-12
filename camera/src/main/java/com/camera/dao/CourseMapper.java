@@ -1,7 +1,9 @@
 package com.camera.dao;
 
-import com.camera.model.Course;
+import org.springframework.stereotype.Repository;
 
+import com.camera.model.Course;
+@Repository
 public interface CourseMapper {
     int deleteByPrimaryKey(Integer csid);
 

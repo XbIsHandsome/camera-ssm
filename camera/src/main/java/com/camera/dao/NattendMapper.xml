@@ -18,10 +18,11 @@
   
   <select id="selectIsLate" resultType="java.lang.Integer" parameterType="java.lang.Integer" >
     select nid
-    from nattend
+    from nattend n,class_course cc
     where week=#{0}
     and course_time=#{1} 
     and sid = #{2}
+    and cc.weekday = #{3}
   </select>
   
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >

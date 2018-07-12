@@ -3,7 +3,7 @@ package com.camera.dao;
 import org.springframework.stereotype.Repository;
 
 import com.camera.model.User;
-@Repository("userMapper")
+@Repository
 public interface UserMapper {
     int deleteByPrimaryKey(Integer uid);
 
