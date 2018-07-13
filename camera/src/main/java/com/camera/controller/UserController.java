@@ -10,6 +10,11 @@ import com.alibaba.fastjson.JSON;
 import com.camera.model.User;
 import com.camera.service.UserService;
 
+/**
+ * @author 许兵
+ * @description 用户模块的控制层 
+ * @date 2018年7月13日,下午1:23:22
+ */
 @Controller
 @RequestMapping(value="/user")
 public class UserController {

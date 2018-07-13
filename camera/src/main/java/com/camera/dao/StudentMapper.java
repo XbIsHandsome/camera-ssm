@@ -6,6 +6,13 @@ import org.springframework.stereotype.Repository;
 
 import com.camera.model.ClassDetail;
 import com.camera.model.Student;
+
+
+/**
+ * @author 许兵
+ * @description 学生的DAO层
+ * @date 2018年7月13日,下午1:26:00
+ */
 @Repository
 public interface StudentMapper {
     int deleteByPrimaryKey(Integer sid);

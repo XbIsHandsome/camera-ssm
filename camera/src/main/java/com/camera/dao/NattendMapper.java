@@ -3,6 +3,13 @@ package com.camera.dao;
 import org.springframework.stereotype.Repository;
 
 import com.camera.model.Nattend;
+
+
+/**
+ * @author 许兵
+ * @description 迟到学生的记录的DAO层
+ * @date 2018年7月13日,下午1:25:24
+ */
 @Repository
 public interface NattendMapper {
     int deleteByPrimaryKey(Integer nid);

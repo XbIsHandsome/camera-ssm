@@ -7,6 +7,11 @@ import org.springframework.stereotype.Repository;
 import com.camera.model.Stuclass;
 import com.camera.model.SycrohProfile;
 
+/**
+ * @author 许兵
+ * @description 班级的DAO层
+ * @date 2018年7月13日,下午1:25:43
+ */
 @Repository
 public interface StuclassMapper {
     int deleteByPrimaryKey(Integer cid);
@@ -27,5 +32,7 @@ public interface StuclassMapper {
 	
 	SycrohProfile selectOneClass(Integer countCurrentDayWeek, Integer countCurrentCourseTime, Integer cid);
 	//SycrohProfile selectByCid(Integer cid);
+
+	List<Stuclass> selectClassName();
 
 }

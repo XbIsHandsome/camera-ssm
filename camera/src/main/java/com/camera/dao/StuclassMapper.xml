@@ -47,6 +47,12 @@
     and cc.cid = c.cid and cs.csid=cc.csid
   </select>
   
+  <!-- 返回所有班级的名称信息 -->
+  <select id="selectClassName" resultMap="BaseResultMap" >
+    select grade,number,class_name,cid
+    from stuclass
+  </select>
+  
   
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 

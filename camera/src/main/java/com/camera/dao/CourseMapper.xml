@@ -9,6 +9,29 @@
   <sql id="Base_Column_List" >
     csid, coursename, warning
   </sql>
+  
+  <select id="selectCsidByCoursename" resultType="java.lang.Integer" parameterType="java.lang.String" >
+    select csid
+    from course
+    where coursename = #{0,jdbcType=VARCHAR}
+  </select>
+  
+  <!-- 判断该节课是否存在 -->
+  <select id="isRepeatedByCoursename" resultType="java.lang.Integer" parameterType="java.lang.String" >
+    select csid
+    from course
+    where coursename = #{0,jdbcType=VARCHAR}
+  </select>
+  
+  <select id="isRepeatedByCoursenameAndCid" resultType="java.lang.Integer" >
+    select cc.ccid
+    from course cs inner join class_course cc
+    where cs.coursename = #{0,jdbcType=VARCHAR}
+    and cc.cid = #{1,jdbcType=INTEGER}
+    and cs.csid = cc.csid
+  </select>
+  
+  
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />

@@ -11,6 +11,11 @@ import com.camera.model.ClassDetail;
 import com.camera.model.SycrohProfile;
 import com.camera.service.SycrohService;
 
+/**
+ * @author 许兵
+ * @description 实时监控的模块的控制层
+ * @date 2018年7月13日,下午1:22:44
+ */
 @Controller
 @RequestMapping("/sycroh")
 public class SycrohController {

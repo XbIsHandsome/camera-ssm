@@ -25,6 +25,8 @@
 <!-- Custom styles for this template -->
 <link href="../static/css/style.css" rel="stylesheet" />
 <link href="../static/css/helper.css" rel="stylesheet" />
+<link href="../static/assets/select2/select2.css" rel="stylesheet" />
+
 </head>
 
 <body>
@@ -33,7 +35,14 @@
 
 
 		<div class="panel">
-
+			<div class="panel-heading">
+				<h3 class="panel-title">
+					<b>历史课程信息查看</b>
+				</h3>
+			</div>
+			<div>
+				<c:import url="select.jsp"></c:import>
+			</div>
 			<div class="panel-body">
 				<table class="table table-bordered table-striped"
 					id="datatable-editable">
@@ -50,15 +59,16 @@
 					<tbody>
 						<c:forEach items="${historyList }" var="h">
 							<tr class="gradeX">
-								<td><c:out value="${ h.coursename}"/></td>
-								<td><c:out value="${ h.grade}"/>
-									<c:out value="${ h.className}"/>
-									<c:out value="${ h.number}"/></td>
-								<td><c:out value="${ h.time}"/></td>
-								<td><c:out value="${ h.place}"/></td>
-								<td><c:out value="${ h.actualNum}"/>/<c:out value="${ h.num}"/></td>
-								<td ><a href="/camera/history/historydetail?weekTime=${h.weekTime }&weekday=${h.weekday}&time=${h.time}
-								&cid=${h.cid}&csid=${h.csid}&grade=${h.grade}&classname=${h.className}&number=${h.number}&place=${h.place}" >查看详情</a></td>
+								<td><c:out value="${ h.coursename}" /></td>
+								<td><c:out value="${ h.grade}" /> <c:out
+										value="${ h.className}" /> <c:out value="${ h.number}" /></td>
+								<td><c:out value="${ h.time}" /></td>
+								<td><c:out value="${ h.place}" /></td>
+								<td><c:out value="${ h.actualNum}" />/<c:out
+										value="${ h.num}" /></td>
+								<td><a
+									href="/camera/history/historydetail?weekTime=${h.weekTime }&weekday=${h.weekday}&time=${h.time}
+								&cid=${h.cid}&csid=${h.csid}&grade=${h.grade}&classname=${h.className}&number=${h.number}&place=${h.place}">查看详情</a></td>
 							</tr>
 						</c:forEach>
 					</tbody>
@@ -87,12 +97,14 @@
 	<script src="../static/js/wow.min.js"></script>
 	<script src="../static/js/jquery.nicescroll.js" type="text/javascript"></script>
 
+	<script src="../static/js/wow.min.js"></script>
 
-	<script src="../static/js/jquery.app.js"></script>
+	<script src="../static/assets/select2/select2.min.js"></script>
 
 	<!-- Examples -->
 	<script src="../static/assets/magnific-popup/magnific-popup.js"></script>
-	<script src="../static/assets/jquery-datatables-editable/jquery.dataTables.js"></script>
+	<script
+		src="../static/assets/jquery-datatables-editable/jquery.dataTables.js"></script>
 	<script src="../static/assets/datatables/dataTables.bootstrap.js"></script>
 	<script
 		src="../static/assets/jquery-datatables-editable/datatables.editable.init.js"></script>

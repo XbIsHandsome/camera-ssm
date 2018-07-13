@@ -9,7 +9,7 @@ import com.camera.model.HistoryProfile;
 
 /**
  * @author 许兵
- * @description 
+ * @description 历史记录模块的业务层
  * @date 2018年7月12日,上午9:53:34
  */
 @Service

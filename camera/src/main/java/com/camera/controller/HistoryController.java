@@ -37,10 +37,11 @@ public class HistoryController {
 	 * @return
 	 */
 	@RequestMapping("/showall")
-	public ModelAndView showByWeek(Integer weektime, Integer weekday){
+	public ModelAndView showByWeek(Integer weektime, Integer weekday, Integer time){
 		logger.info("进入历史课程--->根据传入参数显示当前所有信息...");
+		logger.info("周数："+weektime+";星期数:"+weekday+";第几节课:"+time);
 		ModelAndView mav = new ModelAndView();
-		List<HistoryProfile> historyList = historyService.selectByTimeAndDay(15, 2,1);
+		List<HistoryProfile> historyList = historyService.selectByTimeAndDay(weektime, weekday,time);
 		mav.addObject("historyList", historyList);
 		mav.setViewName("history");
 		return mav;
