@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 
@@ -45,7 +45,7 @@
 
 
 <body>
-	<div style="margin-top: 40px" class="wraper container-fluid"></div>
+<div style="margin-top: 40px" class="wraper container-fluid"></div>
 	<div class="wraper container-fluid">
 
 
@@ -63,43 +63,40 @@
 								method="post" action="/xubing/test/registerUser"
 								novalidate="novalidate">
 								<div class="form-group ">
-									<label for="cname" class="control-label col-lg-2">课程名称</label>
+									<label for="cname" class="control-label col-lg-2">用 户 名</label>
 									<div class="col-lg-10">
 										<input class=" form-control" id="cname" name="username"
 											type="text" required="" aria-required="true">
 									</div>
 								</div>
 								<div class="form-group ">
-									<label for="cname" class="control-label col-lg-2">上课时间</label>
+									<label for="cemail" class="control-label col-lg-2">密 码</label>
 									<div class="col-lg-10">
-										<c:import url="select.jsp"></c:import>
-									</div>
-								</div>
-								<div class="form-group ">
-									<label for="cemail" class="control-label col-lg-2">上课地点</label>
-									<div class="col-lg-10">
-										<input class="form-control " id="place" type="text"
-											name="place" required="true" aria-required="true">
+										<input class="form-control " id="cemail" type="password"
+											name="password" required="" aria-required="true">
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="cname" class="control-label col-lg-2">班&nbsp;&nbsp;&nbsp;级</label>
-									<c:forEach items="${mapClassNames }" var="classname" varStatus="status">
-										<div class="form-group">
-											<div class="col-md-9">
-												<select class="select2-container select2" name="cid">
-													<option value="${classname.key} }"><c:out value="${classname.value}"/></option>
-												</select>
-											</div>
+								<label for="cname" class="control-label col-lg-2">角色选择</label>
+								<c:forEach items="${roleList }" var="role" varStatus="status">
+								<div class="form-group">
+									<div class="col-md-9">
+										<div class="radio-inline">
+											<label class="cr-styled" for="example-radio${status.count }"> <input
+												type="radio" id="example-radio${status.count }" name="roleid" value="${role.roleid }">
+												<i class="fa"></i> <c:out value="${role.rolename }" />
+											</label>
 										</div>
-									</c:forEach>
+									</div>
+								</div>
+								</c:forEach>
 								</div>
 								<!-- form-group -->
 								<div class="form-group ">
-									<label for="ccomment" class="control-label col-lg-2">授课老师</label>
+									<label for="ccomment" class="control-label col-lg-2">个人描述</label>
 									<div class="col-lg-10">
-										<input class="form-control " id="teacher" type="text"
-											name="place" required="true" aria-required="true">
+										<textarea class="form-control " id="ccomment"
+											name="description" required="" aria-required="true"></textarea>
 									</div>
 								</div>
 								<div class="form-group">

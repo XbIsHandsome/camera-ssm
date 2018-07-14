@@ -1,27 +1,33 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
-
+<!-- Mirrored from coderthemes.com/velonic_3.0/admin_3/form-validation.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 29 May 2016 14:52:40 GMT -->
 <head>
-<meta charset="UTF-8" />
-<title>历史课程查看</title>
-<link href="../static/css/bootstrap.min.css" rel="stylesheet" />
-<link href="../static/css/bootstrap-reset.css" rel="stylesheet" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<link rel="shortcut icon" href="img/favicon_1.ico">
+
+<title>智慧课堂-课程管理</title>
+
+<!-- Bootstrap core CSS -->
+<link href="../static/css/bootstrap.min.css" rel="stylesheet">
+<link href="../static/css/bootstrap-reset.css" rel="stylesheet">
+
 <!--Animation css-->
-<link href="../static/css/animate.css" rel="stylesheet" />
+<link href="../static/css/animate.css" rel="stylesheet">
+
 <!--Icon-fonts css-->
 <link href="../static/assets/font-awesome/css/font-awesome.css"
 	rel="stylesheet" />
 <link href="../static/assets/ionicon/css/ionicons.min.css"
 	rel="stylesheet" />
-<!-- Plugin Css-->
-<link rel="stylesheet"
-	href="../static/assets/magnific-popup/magnific-popup.css" />
-<link rel="stylesheet"
-	href="../static/assets/jquery-datatables-editable/datatables.css" />
+
 <!-- Plugins css-->
 <link href="../static/assets/tagsinput/jquery.tagsinput.css"
 	rel="stylesheet" />
@@ -38,81 +44,109 @@
 	href="../static/assets/select2/select2.css" />
 
 <!-- Custom styles for this template -->
-<link href="../static/css/style.css" rel="stylesheet" />
-<link href="../static/css/helper.css" rel="stylesheet" />
-<link href="../static/assets/select2/select2.css" rel="stylesheet" />
+<link href="../static/css/style.css" rel="stylesheet">
+<link href="../static/css/helper.css" rel="stylesheet">
+
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
+<!--[if lt IE 9]>
+          <script src="../static/js/html5shiv.js"></script>
+          <script src="../static/js/respond.min.js"></script>
+        <![endif]-->
+
 
 </head>
 
+
 <body>
-	<div>&nbsp;</div>
-	<div style="margin-top: 60px" class="wraper container-fluid">
+	<div style="margin-top: 40px" class="wraper container-fluid"></div>
+	<div class="wraper container-fluid">
 
 
-		<div class="panel">
-			<div class="panel-heading">
-				<h3 class="panel-title">
-					<b>历史课程信息查看</b>
-				</h3>
-			</div>
-			<form action="/camera/history/showall">
-				<div>
-					<div>
-						<c:import url="select.jsp" />
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">
+							<b>添加课程</b>
+						</h3>
 					</div>
-							<button class="btn btn-success" type="submit">查找</button>
+					<div class="panel-body">
+						<div class=" form">
+							<form class="cmxform form-horizontal tasi-form" id="commentForm"
+								method="post" action="/camera/course/addCourse"
+								novalidate="novalidate">
+								<div class="form-group ">
+									<label  class="control-label col-lg-2">课程名称</label>
+									<div class="col-lg-10">
+										<input class=" form-control" id="coursename" name="coursename"
+											type="text" required="" aria-required="true">
+									</div>
+								</div>
+								<div class="form-group ">
+									<label class="control-label col-lg-2">上课时间</label>
+									<div class="col-lg-10">
+										<c:import url="select2.jsp"></c:import>
+									</div>
+								</div>
+								<div class="form-group ">
+									<label class="control-label col-lg-2">上课地点</label>
+									<div class="col-lg-10">
+										<input class="form-control " id="place" type="text"
+											name="place" required="true" aria-required="true">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-lg-2">班&nbsp;&nbsp;&nbsp;级</label>
+									<div class="col-lg-10">
+									<label class="col-sm-3 control-label" style="width:10%">&nbsp;</label>
+									<div class="form-group">
+										<div class="col-md-9">
+											<select class="select2-container select2" name="cid">
+												<c:forEach items="${mapClassNames }" var="classname"
+													varStatus="status">
+													<option value="${classname.key} "><c:out
+															value="${classname.value}" /></option>
+												</c:forEach>
+											</select>
+										</div>
+									</div>
+									</div>
+								</div>
+								<!-- form-group -->
+								<div class="form-group ">
+									<label for="ccomment" class="control-label col-lg-2">授课老师</label>
+									<div class="col-lg-10">
+										<input class="form-control " id="teacher" type="text"
+											name="teacher" required="true" aria-required="true">
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-lg-offset-2 col-lg-10" align="center">
+										<button class="btn btn-success" type="submit">保存</button>
+										<button class="btn btn-default" type="button">取消</button>
+									</div>
+								</div>
+							</form>
+						</div>
+						<!-- .form -->
+					</div>
+					<!-- panel-body -->
 				</div>
-			</form>
-			<div class="panel-body">
-				<table class="table table-bordered">
-					<thead>
-						<tr>
-							<th>课程名称</th>
-							<th>班级信息</th>
-							<th>上课时间</th>
-							<th>上课地点</th>
-							<th>到课情况</th>
-							<th>操&nbsp;&nbsp;&nbsp;作</th>
-						</tr>
-					</thead>
-					<tbody>
-						<c:forEach items="${historyList }" var="h">
-							<tr class="gradeX">
-								<td><c:out value="${ h.coursename}" /></td>
-								<td><c:out value="${ h.grade}" /> <c:out
-										value="${ h.className}" /> <c:out value="${ h.number}" /></td>
-								<td><c:out value="${ h.time}" /></td>
-								<td><c:out value="${ h.place}" /></td>
-								<td><c:out value="${ h.actualNum}" />/<c:out
-										value="${ h.num}" /></td>
-								<td><a
-									href="/camera/history/historydetail?weekTime=${h.weekTime }&weekday=${h.weekday}&time=${h.time}
-								&cid=${h.cid}&csid=${h.csid}&grade=${h.grade}&classname=${h.className}&number=${h.number}&place=${h.place}">查看详情</a></td>
-							</tr>
-						</c:forEach>
-					</tbody>
-				</table>
+				<!-- panel -->
 			</div>
-			<!-- end: page -->
+			<!-- col -->
 
 		</div>
-		<!-- end Panel -->
+		<!-- End row -->
+
 
 
 	</div>
-
-	<!--[if lt IE 9]>
-<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
-<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
-<script src="../static/assets/../static/js/amazeui.ie8polyfill.min.js"></script>
-<![endif]-->
-
-
-	<!--[if (gte IE 9)|!(IE)]><!-->
+	<!-- js placed at the end of the document so the pages load faster -->
 	<script src="../static/js/jquery.js"></script>
 	<script src="../static/js/bootstrap.min.js"></script>
 	<script src="../static/js/pace.min.js"></script>
-	<script src="../static/js/modernizr.min.js"></script>
 	<script src="../static/js/wow.min.js"></script>
 	<script src="../static/js/jquery.nicescroll.js" type="text/javascript"></script>
 
@@ -134,14 +168,53 @@
 	<script src="../static/assets/select2/select2.min.js"
 		type="text/javascript"></script>
 
+	<script src="../static/js/jquery.app.js"></script>
+	<script type="text/javascript">
+		function createXmlHttp() {
+			var xmlHttp;
+			try { // Firefox, Opera 8.0+, Safari
+				xmlHttp = new XMLHttpRequest();
+			} catch (e) {
+				try {// Internet Explorer
+					xmlHttp = new ActiveXObject("Msxml2.XMLHTTP");
+				} catch (e) {
+					try {
+						xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+					} catch (e) {
+					}
+				}
+			}
 
-	<!-- Examples -->
-	<script src="../static/assets/magnific-popup/magnific-popup.js"></script>
-	<script
-		src="../static/assets/jquery-datatables-editable/jquery.dataTables.js"></script>
-	<script src="../static/assets/datatables/dataTables.bootstrap.js"></script>
-	<script
-		src="../static/assets/jquery-datatables-editable/datatables.editable.init.js"></script>
+			return xmlHttp;
+		}
+
+		function checkProductCount(coursename) {
+			//alert("执行了...."+pid);
+			//1、获得异步交互对象
+			var xhr = createXmlHttp();
+			//2、设置监听xhr.onreadystatechange
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState == 4) {
+					if (xhr.status == 200) {
+						//alert("返回了...");
+						document.getElementById("show_Count").innerHTML = xhr.responseText;
+					}
+				}
+			};
+			//alert("到打开连接了...");
+			//3、打开连接
+			xhr.open("GET",
+					"http://172.16.40.97:8888/camera/course/isRepeated?time="
+							+ new Date().getTime() + "&coursename="
+							+ coursename, true);
+			// 4.发送
+			//alert("发送了..."+"${pageContext.request.contextPath}/product_findStockByPid.action?time="
+			//		+ new Date().getTime() + "&color="
+			//		+ color+"&size="+size+"&pid="+pid);
+			xhr.send(null);
+
+		}
+	</script>
 	<script>
 		jQuery(document)
 				.ready(
@@ -268,4 +341,5 @@
 
 </body>
 
+<!-- Mirrored from coderthemes.com/velonic_3.0/admin_3/form-validation.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 29 May 2016 14:52:40 GMT -->
 </html>

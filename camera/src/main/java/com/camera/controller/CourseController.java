@@ -2,14 +2,13 @@ package com.camera.controller;
 
 import java.util.Map;
 
-import javax.jws.WebParam.Mode;
-
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.alibaba.fastjson.JSON;
 import com.camera.model.ClassCourse;
 import com.camera.service.CourseService;
 
@@ -38,7 +37,9 @@ public class CourseController {
 	@RequestMapping("/addCoursePage")
 	public ModelAndView functionSelect(Integer functionSelect){
 		ModelAndView mav = new ModelAndView();
+		logger.info("进入课程管理模块--->添加课程界面");
 		Map<Integer, String> mapClassNames = courseService.getAllClass();
+		logger.info(JSON.toJSON(mapClassNames));
 		mav.addObject("mapClassNames",mapClassNames);
 		mav.setViewName("addcourse");
 		return mav;
@@ -47,7 +48,9 @@ public class CourseController {
 	
 	@RequestMapping("/addCourse")
 	public ModelAndView addCourse(String coursename, ClassCourse cc){
-		
+		logger.info("进入课程管理模块--->添加课程");
+		logger.info("课程名称--->" + coursename);
+		logger.info("班级课程表--->" + JSON.toJSONString(cc));
 		ModelAndView mav = new ModelAndView();
 		courseService.addCourse(coursename, cc);
 		mav.setViewName("success");

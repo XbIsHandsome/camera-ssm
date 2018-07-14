@@ -8425,3 +8425,9 @@ Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No q
 [INFO] [2018-07-13 10:11:46][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
 [INFO] [2018-07-13 10:11:47][com.camera.test.CourseTest]1
 [INFO] [2018-07-13 10:11:47][org.springframework.context.support.GenericApplicationContext]Closing org.springframework.context.support.GenericApplicationContext@28feb3fa: startup date [Fri Jul 13 10:11:46 CST 2018]; root of context hierarchy
+[INFO] [2018-07-13 16:02:59][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2018-07-13 16:02:59][org.springframework.context.support.GenericApplicationContext]Refreshing org.springframework.context.support.GenericApplicationContext@28feb3fa: startup date [Fri Jul 13 16:02:59 CST 2018]; root of context hierarchy
+[INFO] [2018-07-13 16:02:59][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2018-07-13 16:02:59][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2018-07-13 16:03:00][com.camera.test.CourseTest]{"1":"2015计科一班","2":"2015软件二班","3":"2015信科一班"}
+[INFO] [2018-07-13 16:03:00][org.springframework.context.support.GenericApplicationContext]Closing org.springframework.context.support.GenericApplicationContext@28feb3fa: startup date [Fri Jul 13 16:02:59 CST 2018]; root of context hierarchy

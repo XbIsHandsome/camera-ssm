@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,6 +33,8 @@ public class CourseServiceImpl implements CourseService{
 	@Autowired 
 	private ClassCourseMapper classCourseMapper;	//自动注入班级课程表DAO
 	
+	Logger logger = Logger.getLogger(this.getClass());
+	
 	@Override
 	public boolean isRepeated(String coursename) {
 		//如果存在返回true，如果不存在返回false
@@ -54,7 +57,7 @@ public class CourseServiceImpl implements CourseService{
 			sb.append(stuclass.getGrade()).append(stuclass.getClassName()).append(stuclass.getNumber());
 			listClassNames.put(stuclass.getCid(), sb.toString());
 		}
-		return listClassNames.isEmpty()?listClassNames:null;
+		return listClassNames.isEmpty()?null:listClassNames;
 	}
 
 	@Override
@@ -64,6 +67,7 @@ public class CourseServiceImpl implements CourseService{
 		needAddcourse.setCoursename(coursename);
 		needAddcourse.setWarning("30");
 		
+		logger.info("添加课程业务类中，添加课程的名称--->" + coursename);
 		//插入成功，并且能够使用查询语句能够查询到该课程的主键ID
 		Integer insertCourseFlag = courseMapper.insert(needAddcourse);
 		Integer courseId = courseMapper.selectCsidByCoursename(coursename);
@@ -72,6 +76,8 @@ public class CourseServiceImpl implements CourseService{
 		classCourse.setCsid(courseId);
 		 //该字段目前设置为默认的“第一学期”
 		classCourse.setSemester("第一学期");
+		
+		logger.info("记录当前插入班级课程表的数据--->" + classCourse);
 		//往班级课程表中插入该条上课数据
 		Integer insertClassCourseFlag = classCourseMapper.insert(classCourse);
 

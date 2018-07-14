@@ -1,9 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<div>
 	<div class="form-group">
-		<label class="col-sm-3 control-label" style="width:0%">第</label>
-		<div class="col-sm-9" style="width: 8%">
-			<select class="select2" style="width:0%;margin-right: 1px" name="weekTime">
+		<label class="col-sm-3 control-label" style="width:10%">第</label>
+		<div class="col-sm-9">
+			<select class="select2" multiple
+				data-placeholder="请选择上课周数" style="width:50%" name="weekTime">
 				<option value="1">1</option>
 				<option value="2">2</option>
 				<option value="3">3</option>
@@ -26,12 +28,12 @@
 				<option value="20">20</option>
 			</select>
 		</div>
-		<label class="col-sm-3 control-label" style="width:0%;margin-left: 1px">周</label>
+		<label class="col-sm-3 control-label" style="width:0%">周</label>
 	</div>
 	<div class="form-group">
-		<label class="col-sm-3 control-label" style="width:5%">星期</label>
-		<div class="col-sm-9" style="width: 8%;margin-left: 3px">
-			<select class="select2" name="weekday">
+		<label class="col-sm-3 control-label" style="width:10%">星期</label>
+		<div class="col-sm-9">
+			<select class="select2" style="width:0%" name="weekday">
 				<option value="1">一</option>
 				<option value="2">二</option>
 				<option value="3">三</option>
@@ -43,8 +45,8 @@
 		</div>
 	</div>
 	<div class="form-group" >
-		<label class="col-sm-3 control-label" style="width:0%">第</label>
-		<div class="col-sm-9" style="width: 8%;margin-left: 3px">
+		<label class="col-sm-3 control-label" style="width:10%">第</label>
+		<div class="col-sm-9">
 			<select class="select2-container select2" name="time">
 				<option value="1">一</option>
 				<option value="2">二</option>
@@ -55,3 +57,6 @@
 		</div>
 		<label class="col-sm-3 control-label" style="width:5%">节课</label>
 	</div>
+
+
+</div>
