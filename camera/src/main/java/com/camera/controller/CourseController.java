@@ -1,5 +1,6 @@
 package com.camera.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
@@ -10,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.alibaba.fastjson.JSON;
 import com.camera.model.ClassCourse;
+import com.camera.model.CourseProfile;
 import com.camera.service.CourseService;
 
 /**
@@ -30,7 +32,7 @@ public class CourseController {
 	
 	@RequestMapping("/courseManage")
 	public ModelAndView courseManage(){
-		return new ModelAndView("courseindex");
+		return new ModelAndView("courseManage");
 	}
 	
 	
@@ -59,12 +61,25 @@ public class CourseController {
 	
 	
 	@RequestMapping("/deleteCourse")
-	public ModelAndView deleteCourse(ClassCourse classCourse){
+	public ModelAndView deleteCourse(Integer cid, Integer csid, Integer ccid){
 		ModelAndView mav = new ModelAndView();
-		courseService.deleteCourse(classCourse);
+		courseService.deleteCourse(cid,csid,ccid);
 		mav.setViewName("success");
 		return mav;
-		
-		
 	}
+	
+	@RequestMapping("/deleteCoursePage")
+	public ModelAndView deleteCoursePage(Integer csid){
+		ModelAndView mav = new ModelAndView();
+		List<CourseProfile> list = courseService.showAllCourse();
+		if(!list.isEmpty()){
+			mav.addObject("listCourses", list);
+			mav.setViewName("allcourse");
+		}else{
+			mav.addObject("msg_course", "查询出错，请联系管理员获得帮助！");
+			mav.setViewName("FAILED");
+		}
+		return mav;
+	}
+	
 }

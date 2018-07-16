@@ -1,8 +1,10 @@
 package com.camera.service;
 
+import java.util.List;
 import java.util.Map;
 
 import com.camera.model.ClassCourse;
+import com.camera.model.CourseProfile;
 
 /**
  * @author 许兵
@@ -46,5 +48,9 @@ public interface CourseService {
 	 * @return 返回删除结果
 	 */
 	public boolean deleteCourse(ClassCourse classCourse);
+
+	public List<CourseProfile> showAllCourse();
+
+	public boolean deleteCourse(Integer cid, Integer csid, Integer ccid);
 	
 }

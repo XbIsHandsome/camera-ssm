@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>成功界面</title>
+<title>智慧课堂-成功界面</title>
 <link rel="stylesheet" href="../static/css/amazeui.min.css" />
 <link rel="stylesheet" href="../static/css/admin.css" />
 <link rel="stylesheet" href="../static/css/app.css" />

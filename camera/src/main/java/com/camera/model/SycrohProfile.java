@@ -46,6 +46,9 @@ public class SycrohProfile implements Serializable{
     
     //第几学期
     private String semester;
+    
+    //课程名称
+    private String coursename;
 	
 	/**
 	 * 懒加载
@@ -147,4 +150,13 @@ public class SycrohProfile implements Serializable{
 	public void setSemester(String semester) {
 		this.semester = semester;
 	}
+
+	public String getCoursename() {
+		return coursename;
+	}
+
+	public void setCoursename(String coursename) {
+		this.coursename = coursename;
+	}
+	
 }

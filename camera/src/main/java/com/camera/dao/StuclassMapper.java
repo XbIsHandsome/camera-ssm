@@ -26,7 +26,7 @@ public interface StuclassMapper {
 
     int updateByPrimaryKey(Stuclass record);
 
-	List<SycrohProfile> selectSycrohClass(Integer week, Integer currentTime);
+	List<SycrohProfile> selectSycrohClass(Integer week, Integer currentTime, Integer countDayOfWeek);
 
 	List<Integer> selectCurrentCourse(Integer countCurrentDayWeek, Integer countCurrentCourseTime);
 	

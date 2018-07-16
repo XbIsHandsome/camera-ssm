@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import com.camera.model.ClassCourse;
+import com.camera.model.CourseProfile;
 import com.camera.model.HistoryProfile;
 
 /**
@@ -29,4 +30,6 @@ public interface ClassCourseMapper {
     List<ClassCourse> listall();
 
 	List<HistoryProfile> selectByWeekAndDayOfWeek(Integer weektime, Integer weekday, Integer time);
+
+	List<CourseProfile> showAllCourse();
 }

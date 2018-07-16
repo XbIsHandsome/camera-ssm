@@ -52,8 +52,10 @@ System.out.print(basePath);
 				<a href="/camera/sycroh/showdetail?cid=${myclass.cid }&time=${myclass.time }&place=${myclass.place }">
 					<div class="col-sm-6 col-md-3">
 						<div class="panel">
-							<div class="h3 text-top-blue">${myclass.grade }/${myclass.className}${myclass.number }
+							<div class="h3 text-top-blue">${myclass.coursename }
 							</div>
+							<span class="text-success">${myclass.grade }${myclass.className}${myclass.number }</span>
+							<br>	
 							<span class="text-success"> ${myclass.actualNum} /
 								${myclass.num} </span>
 							<div class="text-right">

@@ -103,7 +103,7 @@ public class TimeUtil {
 	
 	
 	public static  int countDayOfWeek(){
-		return Calendar.DAY_OF_WEEK + 1;
+		return Calendar.DAY_OF_WEEK!=7?Calendar.DAY_OF_WEEK+1:1;
 	}
 
 	/**

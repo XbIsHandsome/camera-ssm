@@ -13,6 +13,7 @@ import com.camera.dao.CourseMapper;
 import com.camera.dao.StuclassMapper;
 import com.camera.model.ClassCourse;
 import com.camera.model.Course;
+import com.camera.model.CourseProfile;
 import com.camera.model.Stuclass;
 import com.camera.service.CourseService;
 
@@ -96,6 +97,18 @@ public class CourseServiceImpl implements CourseService{
 		int deleteCourseFlag = courseMapper.deleteByPrimaryKey(classCourse.getCsid());
 		//删除成功返回true，失败则返回false
 		return  (deleteClassCourseFlag==1 && deleteCourseFlag==1)?true:false;
+	}
+
+	@Override
+	public List<CourseProfile> showAllCourse() {
+		List<CourseProfile> list = this.classCourseMapper.showAllCourse();
+		return list.isEmpty()?null:list;
+	}
+
+	@Override
+	public boolean deleteCourse(Integer cid, Integer csid, Integer ccid) {
+		// TODO Auto-generated method stub
+		return classCourseMapper.deleteByPrimaryKey(ccid)==1?true:false;
 	}
 
 }

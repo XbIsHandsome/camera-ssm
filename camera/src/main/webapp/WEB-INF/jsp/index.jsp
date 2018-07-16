@@ -42,15 +42,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<li class="am-dropdown" data-am-dropdown=""><a
 				class="am-dropdown-toggle" data-am-dropdown-toggle=""
 				href="javascript:;"> <span class="am-icon-users"></span>
-				<s:property value="#session.exitUser.user_name" /> <span
+				${loginUser.userName } <span
 					class="am-icon-caret-down"></span>
 			</a>
 				<ul class="am-dropdown-content">
-					<li onClick="updatePwd('修改密码')"><a href="javascript:void(0)"
-						onClick="updatePwd('修改密码',5)"><span class="am-icon-sign-out"></span>
+					<li ><a href="/camera/user/updatePwdPage"><span class="am-icon-sign-out"></span>
 							修改密码</a></li>
 					<li><a
-						href="../static/user_exit.action"><span
+						href="/camera/user/logout"><span
 							class="am-icon-power-off"></span> 退出 </a></li>
 				</ul></li>
 			<li class="am-hide-sm-only"><a href="javascript:;"
@@ -70,68 +69,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<li class="admin-parent"><a href="/camera/history/showall" class="am-cf" target="right"><span
 							class="am-icon-file"></span> 历史课程<span
 							class="am-icon-angle-right am-fr am-margin-right"></span> </a>
-							<!-- <ul class="am-list am-collapse admin-sidebar-sub am-in"
-							id="collapse-nav">
-							<li><a href="depart.html" target="right" class="am-cf"><span
-									class="am-icon-check"></span> 部门管理 <span
-									class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span>
-							</a></li>
-							<li><a href="user.html" target="right" class="am-cf"><span
-									class="am-icon-check"></span> 用户管理 <span
-									class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span>
-							</a></li>
-
-							</ul> -->
 						</li>
 					<li class="admin-parent"><a href="/camera/sycroh/showall" class="am-cf" target="right"><span
 							class="am-icon-file"></span> 实时监控<span
 							class="am-icon-angle-right am-fr am-margin-right"></span> </a>
-						<!--<ul class="am-list am-collapse admin-sidebar-sub am-in"
-							id="collapse-nav">
-							<li><a href="role.html" target="right" class="am-cf"><span
-									class="am-icon-check"></span> 角色管理 <span
-									class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span>
-							</a></li>
-
-						</ul>--></li>
-						<li class="admin-parent"><a href="/camera/course/addCoursePage" class="am-cf" target="right"><span
+						</li>
+						<li class="admin-parent"><a href="/camera/course/courseManage" class="am-cf" target="right"><span
 							class="am-icon-file"></span> 课程管理<span
 							class="am-icon-angle-right am-fr am-margin-right"></span> </a>
-						<!--<ul class="am-list am-collapse admin-sidebar-sub am-in"
-							id="collapse-nav">
-							<li><a href="role.html" target="right" class="am-cf"><span
-									class="am-icon-check"></span> 角色管理 <span
-									class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span>
-							</a></li>
-
-						</ul>--></li>
-						<li class="admin-parent"><a class="am-cf"><span
-							class="am-icon-file"></span> 学生管理<span
-							class="am-icon-angle-right am-fr am-margin-right"></span> </a>
-						<!--<ul class="am-list am-collapse admin-sidebar-sub am-in"
-							id="collapse-nav">
-							<li><a href="role.html" target="right" class="am-cf"><span
-									class="am-icon-check"></span> 角色管理 <span
-									class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span>
-							</a></li>
-							
-						</ul>-->	</li>
-					<li class="admin-parent"><a class="am-cf"><span
+						</li>
+					<li class="admin-parent"><a href="/camera/Calendar/calendar" class="am-cf" target="right"><span
 							class="am-icon-file"></span> 日程管理<span
 							class="am-icon-angle-right am-fr am-margin-right"></span> </a>
-						<!--<ul class="am-list am-collapse admin-sidebar-sub am-in"
-							id="collapse-nav">
-							  <li><a href="schedule.html" target="right" class="am-cf"><span
-									class="am-icon-check"></span> 我的日程 <span
-									class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span>
-							</a></li>
+						</li>
 							
-						</ul> --> </li>
-							
-					<li onClick="updatePwd('修改密码')"><a href="javascript:void(0)"
-						onClick="updatePwd('修改密码',5)"><span class="am-icon-sign-out"></span>
+					<li><a href="/camera/user/updatePwdPage"><span class="am-icon-sign-out"></span>
 							修改密码</a></li>
-					<li><a href="../static/user_exit.action"><span
+					<li><a href="/camera/user/logout"><span
 							class="am-icon-sign-out"></span> 注销</a></li>
 				</ul>
 
@@ -190,15 +144,5 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script src="../static/js/amazeui.min.js"></script>
 	<script src="../static/js/app.js"></script>
 	<script type="text/javascript" src="../static/myplugs/js/plugs.js"></script>
-	<script type="text/javascript">
-				//添加编辑弹出层
-				function updatePwd(title, id, url1) {
-					$.jq_Panel({
-						title: title,
-						iframeWidth: 500,
-						iframeHeight: 300,
-						url: "updatePwd.jsp"
-					});
-				};
-			</script>
+	
 </html>

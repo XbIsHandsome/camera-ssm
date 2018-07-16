@@ -28,6 +28,12 @@ public class UserServiceImpl implements UserService{
 	public User login(User user) {
 		return this.userMapper.selectByNameAndPass(user.getUserName(),user.getUserPass());
 	}
+	
+	
+	public User updatePwd(User user){
+		return (this.userMapper.updateByPrimaryKey(user)==1)?user:this.userMapper.selectByPrimaryKey(user.getUid());
+	}
+	
 
 	public boolean logout(User user){
 		Date date = new Date();

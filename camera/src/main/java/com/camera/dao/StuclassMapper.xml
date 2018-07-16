@@ -20,6 +20,7 @@
     <result column="place" property="place" jdbcType="VARCHAR" />
     <result column="time" property="time" jdbcType="INTEGER" />
     <result column="semester" property="semester" jdbcType="VARCHAR"/>
+    <result column="coursename" property="coursename" jdbcType="VARCHAR"/>
   </resultMap>
   <sql id="Base_Column_List" >
     cid, department, major, grade, number, last_week_nattend, class_name
@@ -43,7 +44,7 @@
   <select id="selectSycrohClass" resultMap="SycrohMap" >
     select c.cid,cs.csid,c.grade,c.class_name,c.number,cs.coursename,cc.place,cc.time
     from stuclass c,course cs,class_course cc
-    where cc.week_time like '%${0}%' and cc.time=#{1}
+    where cc.week_time like '%${0}%' and cc.time=#{1} and cc.weekday=#{2}
     and cc.cid = c.cid and cs.csid=cc.csid
   </select>
   

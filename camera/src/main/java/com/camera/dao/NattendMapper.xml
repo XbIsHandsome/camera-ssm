@@ -17,7 +17,7 @@
   </sql>
   
   <select id="selectIsLate" resultType="java.lang.Integer" parameterType="java.lang.Integer" >
-    select nid
+    select distinct n.nid
     from nattend n,class_course cc
     where n.week=#{0}
     and n.course_time=#{1} 

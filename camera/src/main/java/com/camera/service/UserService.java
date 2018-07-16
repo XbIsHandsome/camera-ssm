@@ -13,4 +13,6 @@ public interface UserService {
 	public User login(User user);
 	
 	public boolean logout(User user);
+	
+	public User updatePwd(User user);
 }

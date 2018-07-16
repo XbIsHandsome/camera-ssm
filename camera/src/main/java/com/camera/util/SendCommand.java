@@ -63,8 +63,10 @@ public class SendCommand {
 			
 			
 		} catch (NullPointerException e) {
-			System.out.println("获取模型信息失败！！！");
+			logger.info("获取模型信息失败！！！");
+			sycrSendCommand();
 		} catch (FileNotFoundException e) {
+			logger.info("模型文件路径错误");
 			e.printStackTrace();
 		}
 	}

@@ -54,7 +54,11 @@
           <script src="../static/js/respond.min.js"></script>
         <![endif]-->
 
-
+<style type="text/css">
+	.error{
+		color:red;
+	}
+</style>
 </head>
 
 
@@ -77,10 +81,10 @@
 								method="post" action="/camera/course/addCourse"
 								novalidate="novalidate">
 								<div class="form-group ">
-									<label  class="control-label col-lg-2">课程名称</label>
+									<label for="coursename" class="control-label col-lg-2">课程名称</label>
 									<div class="col-lg-10">
 										<input class=" form-control" id="coursename" name="coursename"
-											type="text" required="" aria-required="true">
+											type="text" required="true" aria-required="true">
 									</div>
 								</div>
 								<div class="form-group ">
@@ -90,27 +94,28 @@
 									</div>
 								</div>
 								<div class="form-group ">
-									<label class="control-label col-lg-2">上课地点</label>
+									<label for="place" class="control-label col-lg-2">上课地点</label>
 									<div class="col-lg-10">
 										<input class="form-control " id="place" type="text"
 											name="place" required="true" aria-required="true">
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="control-label col-lg-2">班&nbsp;&nbsp;&nbsp;级</label>
+									<label for="cid" class="control-label col-lg-2">班&nbsp;&nbsp;&nbsp;级</label>
 									<div class="col-lg-10">
-									<label class="col-sm-3 control-label" style="width:10%">&nbsp;</label>
-									<div class="form-group">
-										<div class="col-md-9">
-											<select class="select2-container select2" name="cid">
-												<c:forEach items="${mapClassNames }" var="classname"
-													varStatus="status">
-													<option value="${classname.key} "><c:out
-															value="${classname.value}" /></option>
-												</c:forEach>
-											</select>
+										<label class="col-sm-3 control-label" style="width: 10%">&nbsp;</label>
+										<div class="form-group">
+											<div class="col-md-9">
+												<select class="select2-container select2" name="cid"
+													required="true" id="cid">
+													<c:forEach items="${mapClassNames }" var="classname"
+														varStatus="status">
+														<option value="${classname.key} "><c:out
+																value="${classname.value}" /></option>
+													</c:forEach>
+												</select>
+											</div>
 										</div>
-									</div>
 									</div>
 								</div>
 								<!-- form-group -->
@@ -167,6 +172,7 @@
 		src="../static/assets/spinner/spinner.min.js"></script>
 	<script src="../static/assets/select2/select2.min.js"
 		type="text/javascript"></script>
+
 
 	<script src="../static/js/jquery.app.js"></script>
 	<script type="text/javascript">
@@ -339,6 +345,36 @@
 						});
 	</script>
 
+
+	<script
+		src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script>
+	<script
+		src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/localization/messages_zh.js"></script>
+	<script type="text/javascript">
+		$.validator.setDefaults({
+			submitHandler : function() {
+				$("#commentForm").submit();
+
+			}
+		});
+		$().ready(function() {
+			// 在键盘按下并释放及提交后验证提交表单
+			$("#commentForm").validate({
+				rules : {
+					coursename : "required",
+					teacher : "required",
+					place : "required",
+					cid : "required",
+				},
+				messages : {
+					coursename : "请输入课程名称",
+					teacher : "请输入任课老师名称",
+					place : "请输入上课地点",
+					cid : "请选择班级",
+				}
+			});
+		});
+	</script>
 </body>
 
 <!-- Mirrored from coderthemes.com/velonic_3.0/admin_3/form-validation.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 29 May 2016 14:52:40 GMT -->

@@ -24,6 +24,15 @@
 		<result column="place" property="place" jdbcType="VARCHAR" />
 		<result column="time" property="time" jdbcType="INTEGER" />
 	</resultMap>
+	
+	<resultMap id="CourseMap" type="com.camera.model.CourseProfile">
+		<result column="csid" property="csid" jdbcType="INTEGER" />
+		<result column="ccid" property="ccid" jdbcType="INTEGER" />
+		<result column="cid" property="cid" jdbcType="INTEGER" />
+		<result column="place" property="place" jdbcType="VARCHAR" />
+		<result column="teacher" property="teacher" jdbcType="VARCHAR" />
+		<result column="coursename" property="coursename" jdbcType="VARCHAR" />
+	</resultMap>
 	<sql id="Base_Column_List">
 		ccid, semester, week_time, time, place, teacher, cid, csid,weekday
 	</sql>
@@ -33,7 +42,15 @@
 		<include refid="Base_Column_List" />
 		from class_course
 	</select>
-
+	
+	<!-- 构建课程管理中删除课程的显示所有课程 -->
+	<select id="showAllCourse" resultMap="CourseMap">
+		select
+		cs.coursename,cs.csid,cc.teacher,cc.place,cc.ccid,cc.cid,c.class_name,c.grade,c.number
+		from course cs,class_course cc,stuclass c
+		where cc.cid = c.cid 
+		and cs.csid = cc.csid
+	</select>
 	<!-- 构建查询历史课程信息的查询语句 -->
 	<select id="selectByWeekAndDayOfWeek" resultMap="HistorytMap">
 		select
